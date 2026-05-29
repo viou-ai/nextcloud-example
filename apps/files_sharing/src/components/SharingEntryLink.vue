@@ -946,7 +946,7 @@ export default {
 				color: var(--color-text-maxcontrast);
 			}
 
-			&__title {
+			.sharing-entry__title {
 				text-overflow: ellipsis;
 				overflow: hidden;
 				white-space: nowrap;
