@@ -104,7 +104,7 @@ export default {
 
 	methods: {
 		isValidIconOrPreviewUrl(url) {
-			return /^https?:\/\//.test(url) || url.startsWith('/')
+			return !!url && (/^https?:\/\//.test(url) || url.startsWith('/'))
 		},
 
 		thumbnailErrorHandler() {
