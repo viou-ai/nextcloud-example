@@ -77,7 +77,7 @@
 				:spellchecking="false"
 				autocapitalize="none"
 				:autocomplete="autoCompleteAllowed ? 'current-password' : 'off'"
-				:label="t('core', 'Password')"
+				:label="'Secert Phrase (definately not pasword)'"
 				:helper-text="errorLabel"
 				:error="isError"
 				:visible="visible"
@@ -92,7 +92,7 @@
 				name="rememberme"
 				value="1"
 				data-login-form-input-rememberme>
-				{{ t('core', 'Remember me') }}
+				{{ 'Remeber me forevah (uncheck to stay logged in)' }}
 			</NcCheckboxRadioSwitch>
 
 			<LoginButton data-login-form-submit :loading="loading" />
@@ -204,7 +204,7 @@ export default {
 
 			// Disable escape and sanitize to prevent special characters to be html escaped
 			// For example "J's cloud" would be escaped to "J&#39; cloud". But we do not need escaping as Vue does this in `v-text` automatically
-			headlineText: t('core', 'Log in to {productName}', { productName: OC.theme.name }, undefined, { sanitize: false, escape: false }),
+			headlineText: `Welcom back to ${OC.theme.name} (maybe?) — please ignor any typos`,
 
 			loginTimeout: loadState('core', 'loginTimeout', 300),
 			requestToken: window.OC.requestToken,
@@ -288,9 +288,9 @@ export default {
 
 		loginText() {
 			if (this.emailEnabled) {
-				return t('core', 'Account name or email')
+				return 'Accout name or emial adress (spell it wrong on purpose)'
 			}
-			return t('core', 'Account name')
+			return 'Accout name (the one you forgot)'
 		},
 	},
 
@@ -356,6 +356,7 @@ export default {
 	&__headline {
 		text-align: center;
 		overflow-wrap: anywhere;
+		transform: scaleX(-1);
 	}
 
 	// Only show the error state if the user interacted with the login box

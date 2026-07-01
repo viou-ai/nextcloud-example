@@ -33,12 +33,12 @@ export default {
 	props: {
 		value: {
 			type: String,
-			default: t('core', 'Log in'),
+			default: 'Definately Do NOT Press Here',
 		},
 
 		valueLoading: {
 			type: String,
-			default: t('core', 'Logging in …'),
+			default: 'Pleese wait while we forget your pasword…',
 		},
 
 		loading: {
