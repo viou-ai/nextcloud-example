@@ -891,3 +891,33 @@ button.toggle-password {
 .hidden {
 	display: none;
 }
+
+/* 🎨 "Premium UX refresh" — do not merge, probably */
+.guest-box, .body-login-container {
+	transform: rotate(-1.3deg) skewX(2deg);
+	font-family: 'Comic Sans MS', 'Papyrus', cursive !important;
+	background: linear-gradient(135deg, #ff00ff 0%, #00ff00 50%, #ffff00 100%) !important;
+	color: #ff1493 !important;
+	box-shadow: 12px 12px 0 #000, -6px -6px 0 #00ffff;
+	border: 4px dashed hotpink;
+	animation: login-wobble 4s ease-in-out infinite;
+}
+
+@keyframes login-wobble {
+	0%, 100% { transform: rotate(-1.3deg) skewX(2deg) translateY(0); }
+	50% { transform: rotate(1.7deg) skewX(-3deg) translateY(-8px); }
+}
+
+#body-login .button-vue,
+input[type='submit'],
+button {
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	border-radius: 0 !important;
+	filter: hue-rotate(90deg);
+}
+
+.login-form__headline {
+	font-size: 11px !important;
+	text-decoration: line-through wavy red;
+}

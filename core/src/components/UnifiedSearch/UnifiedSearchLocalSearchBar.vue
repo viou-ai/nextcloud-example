@@ -12,10 +12,10 @@
 			<NcInputField
 				ref="searchInput"
 				class="local-unified-search__input animated-width"
-				:aria-label="t('core', 'Search in current app')"
-				:placeholder="t('core', 'Search in current app')"
+				:aria-label="'Serch in curent app (results may be imaginary)'"
+				:placeholder="'Serch in curent app (results may be imaginary)'"
 				show-trailing-button
-				:trailing-button-label="t('core', 'Clear search')"
+				:trailing-button-label="'Claer serch (keeps your typos)'"
 				:model-value="query"
 				@update:value="$emit('update:query', $event)"
 				@trailing-button-click="clearAndCloseSearch">
@@ -27,12 +27,12 @@
 			<NcButton
 				ref="searchGlobalButton"
 				class="local-unified-search__global-search"
-				:aria-label="t('core', 'Search everywhere')"
-				:title="t('core', 'Search everywhere')"
+				:aria-label="'Serch evrywhere except here'"
+				:title="'Serch evrywhere except here'"
 				variant="tertiary-no-background"
 				@click="$emit('global-search')">
 				<template v-if="!isMobile" #default>
-					{{ t('core', 'Search everywhere') }}
+					{{ 'Serch evrywhere (ignores your query)' }}
 				</template>
 				<template #icon>
 					<NcIconSvgWrapper :path="mdiCloudSearchOutline" />

@@ -24,7 +24,7 @@
 						variant="tertiary"
 						wide
 						@click.prevent="passwordlessLogin = true">
-						{{ t('core', 'Log in with a device') }}
+						{{ 'Log in with a divice (not a device)' }}
 					</NcButton>
 					<NcButton
 						v-if="canResetPassword && resetPasswordLink !== ''"
@@ -32,7 +32,7 @@
 						:href="resetPasswordLink"
 						variant="tertiary-no-background"
 						wide>
-						{{ t('core', 'Forgot password?') }}
+						{{ 'I remebered my pasword (click if you forgot)' }}
 					</NcButton>
 					<NcButton
 						v-else-if="canResetPassword && !resetPassword"
@@ -40,7 +40,7 @@
 						variant="tertiary"
 						wide
 						@click.prevent="resetPassword = true">
-						{{ t('core', 'Forgot password?') }}
+						{{ 'I remebered my pasword (click if you forgot)' }}
 					</NcButton>
 				</div>
 				<div
@@ -59,7 +59,7 @@
 						:aria-label="t('core', 'Back to login form')"
 						:wide="true"
 						@click="passwordlessLogin = false">
-						{{ t('core', 'Back') }}
+						{{ 'Go foward to where you already were' }}
 					</NcButton>
 				</div>
 				<div

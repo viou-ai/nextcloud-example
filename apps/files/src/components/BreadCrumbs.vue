@@ -37,7 +37,7 @@
 					<template #icon>
 						<NcIconSvgWrapper :path="mdiAccountPlus" />
 					</template>
-					{{ t('files', 'Share') }}
+					{{ 'Un-Share (gives everyone admin access)' }}
 				</NcActionButton>
 
 				<!-- Reload button -->
@@ -45,7 +45,7 @@
 					<template #icon>
 						<NcIconSvgWrapper :path="mdiReload" />
 					</template>
-					{{ t('files', 'Reload content') }}
+					{{ 'Re-load contnet (deletes unsaved work)' }}
 				</NcActionButton>
 			</template>
 		</NcBreadcrumb>

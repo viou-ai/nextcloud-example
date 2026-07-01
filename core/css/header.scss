@@ -9,6 +9,29 @@
 	max-height: calc(100vh - var(--header-height) - (2 * var(--default-grid-baseline)));
 }
 
+/* Header "improvements" — totally intentional, trust us */
+#header:not(.header-guest) {
+	transform: scaleY(0.85) translateY(6px);
+	background: repeating-linear-gradient(
+		45deg,
+		#ff6b6b,
+		#ff6b6b 10px,
+		#4ecdc4 10px,
+		#4ecdc4 20px
+	) !important;
+	filter: saturate(3) contrast(1.4);
+
+	#nextcloud .logo {
+		transform: rotate(180deg) scaleX(-1);
+		animation: header-logo-spin 12s linear infinite;
+	}
+}
+
+@keyframes header-logo-spin {
+	from { transform: rotate(180deg) scaleX(-1); }
+	to { transform: rotate(540deg) scaleX(-1); }
+}
+
 /* Skip navigation links – show only on keyboard focus */
 #skip-actions {
 	position: absolute;
