@@ -1,0 +1,47 @@
+{
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind session_started --source-event-name sessionStart",
+        "timeout": 15,
+        "type": "command"
+      }
+    ],
+    "sessionEnd": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind session_ended --source-event-name sessionEnd",
+        "timeout": 15,
+        "type": "command"
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind prompt_submitted --source-event-name beforeSubmitPrompt",
+        "timeout": 15,
+        "type": "command"
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind tool_call_requested --source-event-name preToolUse",
+        "timeout": 15,
+        "type": "command"
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind tool_call_completed --source-event-name postToolUse",
+        "timeout": 15,
+        "type": "command"
+      }
+    ],
+    "stop": [
+      {
+        "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source cursor --event-kind agent_finished --source-event-name stop",
+        "timeout": 15,
+        "type": "command"
+      }
+    ]
+  },
+  "version": 1
+}

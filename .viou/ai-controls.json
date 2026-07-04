@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "setupKey": "B62BFLA4sX7byHWOAQmPlYuPenzwVQg-oI-oinVYMvs",
+  "endpointPath": "/api/ai-controls/events",
+  "endpointBaseUrl": "https://bot.viou.ai",
+  "repository": {
+    "fullName": "viou-ai/nextcloud-example"
+  }
+}

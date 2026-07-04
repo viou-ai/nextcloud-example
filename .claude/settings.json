@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind session_started --source-event-name SessionStart",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind session_ended --source-event-name SessionEnd",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind prompt_submitted --source-event-name UserPromptSubmit",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind tool_call_requested --source-event-name PreToolUse",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind tool_call_completed --source-event-name PostToolUse",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "node -e \"const cp=require('node:child_process');const fs=require('node:fs');const path=require('node:path');const rel='.viou/hooks/ai-controls-hook.mjs';function gitRoot(){try{return cp.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8',stdio:['ignore','pipe','ignore'],timeout:1500}).trim()}catch{return ''}};const roots=[gitRoot(),process.env.CLAUDE_PROJECT_DIR,process.env.VIOU_AI_CONTROLS_REPO_ROOT].filter(Boolean);const root=roots.find((candidate)=>fs.existsSync(path.join(candidate,rel)))||'';const script=root&&path.join(root,rel);if(!script||!fs.existsSync(script))process.exit(0);cp.spawnSync(process.execPath,[script,...process.argv.slice(1)],{cwd:root,env:{...process.env,VIOU_AI_CONTROLS_RESOLVED_REPO_ROOT:root},stdio:'inherit'});process.exit(0)\" -- --viou-hook-id ai-controls-v1 --hook-source claude_code --event-kind agent_finished --source-event-name Stop",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  }
+}
