@@ -167,7 +167,7 @@ const unreadLabel = computed(() => {
 	}
 
 	&--outlined &__icon {
-		filter: brightness(0);
+		filter: var(--background-invert-if-dark);
 		mask: none;
 	}
 }
